@@ -1,29 +1,11 @@
-var dbconfig = require("../dbconfig/dbconfig")
-var sql = require("mssql/msnodesqlv8");
+const dbconfig = require("../dbconfig/db")
+const sql = require("mssql/msnodesqlv8");
 
 
+const getAllData =async function (req, res) {
 
-
-
-
-app.get('/app', function (req, res) {
-
- 
-
-    // config for your database
-     // var config = {
-     //   user: "sa",
-     //   password: "neo27115",
-     //   database: 'JAIHINDCOUIRER',
-     //   server: 'NEO8',
-     //   driver: 'msnodesqlv8',
-     //   options: {
-     //     trustedConnection: true
-     //   }
-     // };
-   
      // connect to your database
-     sql.connect(dbconfig.config, function (err) {
+     await sql.connect(dbconfig.config, function (err) {
    
        if (err) console.log(err);
    
@@ -31,7 +13,7 @@ app.get('/app', function (req, res) {
        var request = new sql.Request();
    
        // query to the database and get the records
-       request.query('select * from DestinationMast', function (err, recordset) {
+      request.query("select * from DestinationMast", function (err, recordset) {
    
          if (err) console.log(err)
    
@@ -40,4 +22,6 @@ app.get('/app', function (req, res) {
    
        });
      });
-   });
+   };
+
+   module.exports = {getAllData}
