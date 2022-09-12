@@ -3,10 +3,6 @@ var app = express();
 var sql = require("mssql/msnodesqlv8");
 // var dbconfig = require("./dbconfig/dbconfig")
  const routes = require('./route/router');
-
-<<<<<<< HEAD
-
-
  app.use(express.json());
  
  app.use('/', routes); 
@@ -50,7 +46,6 @@ var sql = require("mssql/msnodesqlv8");
 var server = app.listen(5000, function () {
   console.log('Server is running..');
 });
-=======
 var config = {
     user:"sa",
     password:"neo27115",
@@ -71,23 +66,4 @@ sql.connect(config,function(err){
             console.log(err)
         }else{console.log(recordSet)}
     })
-})
->>>>>>> 532b2efb9e0c5245d31d4404b12145f503615b5b
-
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
->>>>>>> 532b2efb9e0c5245d31d4404b12145f503615b5b
+});
