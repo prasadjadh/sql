@@ -4,6 +4,7 @@ var sql = require("mssql/msnodesqlv8");
 // var dbconfig = require("./dbconfig/dbconfig")
  const routes = require('./route/router');
 
+<<<<<<< HEAD
 
 
  app.use(express.json());
@@ -49,6 +50,29 @@ var sql = require("mssql/msnodesqlv8");
 var server = app.listen(5000, function () {
   console.log('Server is running..');
 });
+=======
+var config = {
+    user:"sa",
+    password:"neo27115",
+    database : 'KNK',
+    server:'NEO1',
+    driver: 'msnodesqlv8',
+    options: {
+        trustedConnection :true
+    }
+};
+sql.connect(config,function(err){
+    if(err){
+        console.log(err);
+    }
+    var request = new sql.Request();
+  request.query("select Destination_Code , Destination_Name from destinationmast where Destination_Name='thane'",function(err,recordSet){
+        if(err){
+            console.log(err)
+        }else{console.log(recordSet)}
+    })
+})
+>>>>>>> 532b2efb9e0c5245d31d4404b12145f503615b5b
 
 
 
@@ -56,3 +80,14 @@ var server = app.listen(5000, function () {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+>>>>>>> 532b2efb9e0c5245d31d4404b12145f503615b5b
